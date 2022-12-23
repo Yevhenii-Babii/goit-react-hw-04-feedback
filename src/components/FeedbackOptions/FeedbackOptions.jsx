@@ -1,23 +1,23 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { Block } from './Feedback.styled';
 
-export const FeedbackOptions = ({options,  onLeaveFeedback}) => {
-return(
-    <div>
-       {Object.keys(options).map(id=> (
-        <button onClick={()=> onLeaveFeedback(id)}
-        key={id}>
-            {id}
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  return (
+    <Block>
+      {options.map(id => (
+        <button onClick={() => onLeaveFeedback(id)} key={id}>
+          {id}
         </button>
-        ))}
-    </div>
-)
-}
+      ))}
+    </Block>
+  );
+};
 
-FeedbackOptions.prototype ={
-options: PropTypes.shape({
+FeedbackOptions.prototype = {
+  options: PropTypes.shape({
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
-}).isRequired,
-onLeaveFeedback: PropTypes.func.isRequired,
-}
+  }).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
