@@ -4,9 +4,9 @@ import { Block } from './Feedback.styled';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <Block>
-      {options.map(id => (
-        <button onClick={() => onLeaveFeedback(id)} key={id}>
-          {id}
+      {Object.keys(options).map(option => (
+        <button onClick={() => onLeaveFeedback(option)} key={option}>
+          {option}
         </button>
       ))}
     </Block>
